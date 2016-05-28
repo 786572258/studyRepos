@@ -1,0 +1,42 @@
+<style type="text/css">
+	.content {width:500px; height:200px; background:gray;border:1px solid green;}
+	.ad {width:300px; height:200px; background:gray;}
+</style>
+<select name="" id="sel" onchange="t()">
+<option value="male">男式风格</option>
+<option value="female">女式风格</option>
+</select>
+<br>
+<br>
+<br>
+<div class="content">
+	男式风格内容。。。
+</div>
+<br>
+<br>
+<br>
+<div class="ad">
+	广告
+</div>
+
+<script type="text/javascript">
+function t() {
+	var sel = document.getElementsByTagName('select')[0];
+	if(sel.value == 'male') {
+		document.getElementsByClassName('content')[0].style.backgroundColor = 'gray';
+		document.getElementsByClassName('ad')[0].style.background = 'gray';
+				document.getElementsByClassName('ad')[0].innerHTML = '男人。。。。';
+				document.getElementsByClassName('content')[0].innerHTML = '男人。。。。';
+
+	} else if(sel.value == 'female') {
+	//alert(3);
+		document.getElementsByClassName('content')[0].style.backgroundColor = 'pink';
+		document.getElementsByClassName('ad')[0].style.background = 'pink';
+		document.getElementsByClassName('ad')[0].innerHTML = '减肥';
+		document.getElementsByClassName('content')[0].innerHTML = '女人';
+		
+	}
+}
+
+
+</script>

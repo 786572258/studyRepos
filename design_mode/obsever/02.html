@@ -1,0 +1,39 @@
+<style type="text/css">
+	.content {width:500px; height:200px; background:gray;border:1px solid green;}
+	.ad {width:300px; height:200px; background:gray;}
+</style>
+<select name="" id="sel">
+<option value="male">男式风格</option>
+<option value="female">女式风格</option>
+</select>
+<br>
+<br>
+<br>
+<div class="content">
+	男式风格内容。。。
+</div>
+<br>
+<br>
+<br>
+<div class="ad">
+	广告
+</div>
+
+<script type="text/javascript">
+	//观察者是内容、广告对象；被观察者是下拉框
+	var sel = document.getElementsByTagName('select')[0];
+	//观察者列表
+	var observers = {};
+	//添加（注册）观察者
+	observers.attach = function(key, obj) {
+		
+	}
+	sel.onchange = sel.notify = function(){
+		//通知所有观察者（content、add）
+		//alert(sel.value);
+	}
+	
+	
+
+
+</script>

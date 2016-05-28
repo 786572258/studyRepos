@@ -1,0 +1,94 @@
+<style type="text/css">
+	.content {width:500px; height:200px; background:gray;border:1px solid green;}
+	.ad {width:300px; height:200px; background:gray;}
+	.study {width:300px; height:200px; background:blue;}
+</style>
+<select name="" id="sel">
+<option value="male">男式风格</option>
+<option value="female">女式风格</option>
+</select>
+<br>
+<br>
+<br>
+<div class="content">
+	男式风格内容。。。
+</div>
+<br>
+<br>
+<br>
+<div class="ad">
+	广告
+</div>
+
+<div class="study">
+	学习
+</div>
+
+<script type="text/javascript">
+	//观察者是内容、广告对象；被观察者是下拉框
+	var sel = document.getElementsByTagName('select')[0];
+	//观察者列表
+	var observers = {};
+	//为监听者（通知者）添加（注册）观察者
+	sel.attach = function(key, obj) {
+		observers[key] = obj;
+	}
+	
+	sel.onchange = sel.notify = function(){
+		//console.log(observers);
+		//通知者（被观察者）通知所有观察者（content、add）
+		for(var key in observers) {
+			console.log(observers[key]);
+			observers[key].update(sel);
+		}
+		//alert(sel.value);
+	}
+	
+	//注册一个观察者
+	var content = document.getElementsByClassName('content')[0];
+	sel.attach('content', content);
+	//content观察者动作
+	content.update = function(subject) {
+		if(subject.value == 'male') {
+			this.style.backgroundColor = 'gray';
+			this.innerHTML = '男人的内容。。。。';
+		} else if(subject.value == 'female') {
+			this.style.backgroundColor = 'pink';
+			this.innerHTML = '女人的内容。。。。';
+		}
+	}
+	
+	//注册一个观察者
+	var ad = document.getElementsByClassName('ad')[0];
+	sel.attach('ad', ad);
+	//ad观察者动作
+	ad.update = function(subject) {
+		if(subject.value == 'male') {
+			this.style.backgroundColor = 'gray';
+			this.innerHTML = '男人的广告。。。。';
+		} else if(subject.value == 'female') {
+			this.style.backgroundColor = 'pink';
+			this.innerHTML = '女人的广告。。。。';
+		}
+	}
+	
+	//注册一个观察者
+	var study = document.getElementsByClassName('study')[0];
+	sel.attach('study', study);
+	//study观察者动作
+	study.update = function(subject) {
+		if(subject.value == 'male') {
+			this.style.backgroundColor = 'blue';
+			this.innerHTML = '男人的学习。。。。';
+		} else if(subject.value == 'female') {
+			this.style.backgroundColor = 'red';
+			this.innerHTML = '女人的学习。。。。';
+		}
+	}
+	
+	
+	
+	
+
+
+</script>
