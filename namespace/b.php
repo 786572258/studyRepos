@@ -31,4 +31,11 @@ echo test;	  //输出Btest
 
 echo namespace/test;
 */
+
+include "c.php";
+use  C\TEST\TEST2 AS TEST3;
+TEST3\test();
+
+
 ?>
+<meta charset="utf-8">
