@@ -1,0 +1,38 @@
+<meta charset="utf-8">
+<script src="vue.js"></script>
+
+
+<div id="demo">
+  <!--<div class="static" v-bind:class="{ 'class-a': isA, 'class-b': isB }"></div>-->
+  <div v-bind:class="classObject"></div>
+  <div v-bind:class="[classA, classB]"></div>
+  <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
+
+</div>
+<script>
+  var vm = new Vue({
+    el: '#demo',
+   /* data: {
+      isA: true,
+      isB: false
+    }*/
+    /*
+    data: {
+      classObject: {
+        'class-a': true,
+        'class-b': false
+      }
+    }*/
+
+    /*data: {
+      classA: 'class-a',
+      classB: 'class-b'
+    }*/
+
+    data: {
+      activeColor: 'red',
+      fontSize: 30
+    }
+
+  });
+</script>

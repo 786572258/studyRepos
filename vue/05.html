@@ -1,0 +1,36 @@
+<meta charset="utf-8">
+<script src="vue.js"></script>
+
+
+<div id="demo">
+  {{example}}
+  <a @click="showMsg">点击输出信息</a>
+</div>
+<script>
+  var vm = new Vue({
+    el:'#demo',
+    data: {
+      msg: 'hi'
+    },
+/*    computed: {
+      example: function () {
+        return Date.now() + this.msg
+      }
+    },*/
+
+    computed: {
+      example: {
+        cache: false,
+        get: function () {
+          return Date.now() + this.msg
+        }
+      }
+    },
+
+    methods: {
+      showMsg: function() {
+        alert(this.example);
+      }
+    }
+  })
+</script>

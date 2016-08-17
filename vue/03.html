@@ -1,0 +1,36 @@
+<meta charset="utf-8">
+<!-- 这是我们的 View -->
+<div id="app">
+  Hello {{ name }}!
+  <a v-bind:href="url">link</a>
+  <a :href="url">link2</a>
+  <a v-on:click="doSomething">doSomething</a>
+  <!-- 缩写 -->
+  <a @click="doSomething">缩写的v-on</a>
+  <a v-bind:href.literal="/a/b/c">abc</a>
+
+  <!-- 完整语法 -->
+  <button v-bind:disabled="someDynamicCondition">Button</button>
+</div>
+
+
+<script src="vue.js"></script>
+<script type="text/javascript">
+	// 这是我们的 Model
+	var exampleData = {
+	  name: 'Vue.js',
+	  url: 'www.baidu.com'
+	}
+
+	// 创建一个 Vue 实例或 "ViewModel"
+	// 它连接 View 与 Model
+	var exampleVM = new Vue({
+	  el: '#app',
+	  data: exampleData,
+      methods: {
+        doSomething: function() {
+          alert(5);
+        }
+      }
+	})
+</script>

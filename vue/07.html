@@ -1,0 +1,40 @@
+<meta charset="utf-8">
+<script src="vue.js"></script>
+
+
+<div id="demo">
+  <h1 v-if="ok">
+
+    Yes
+    <span>sfdsfsdf</span>
+  </h1>
+
+  <h1 v-else>No</h1>
+  {{#if ok}}
+  <h1>为何还会显示</h1>
+  {{/if}}
+
+  <template v-if="ok">
+    <h1>Title</h1>
+    <p>Paragraph 1</p>
+    <p>Paragraph 2</p>
+  </template>
+
+  <h1 v-show="ok">Hello!</h1>
+
+
+
+  <custom-component v-show="condition">condition</custom-component>
+  <p v-show="!condition">这可能也是一个组件</p>
+</div>
+<script>
+  var vm = new Vue({
+    el: '#demo',
+    data: {
+      ok: true,
+      condition: true
+    }
+
+
+  });
+</script>

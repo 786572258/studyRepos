@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head> 
+
+</head>
+
+<body>
+
+<!-- <div id="app">
+  <p>{{ message }}</p>
+  <input v-model="message">
+</div>
+ -->
+
+<div id="app">
+
+  <ul>
+    <li v-for="todo in todos">
+      ${ todo.text }
+    </li>
+  </ul>
+</div>
+
+<div class="app1">
+  <p>${ message }</p>
+  <button v-on:click="reverseMessage">Reverse Message</button>
+</div>
+
+<script src="vue.js"></script>
+<script type="text/javascript">
+Vue.config.delimiters = ['${', '}'];
+var a = new Vue({
+
+    /*
+	el: '#app',
+    data: {
+        message: 'Hello Vue.js!'
+    }
+	*/
+
+	/*el: '#app',
+    data: {
+    todos: [
+      { text: 'Learn JavaScript' },
+      { text: 'Learn Vue.js' },
+      { text: 'Build Something Awesome' }
+    ]
+	},
+	*/
+
+	el: '.app1',
+	data: {
+		message: 'Hello Vue.js!'
+	},
+	methods: {
+		reverseMessage: function () {
+		  this.message = this.message.split('').reverse().join('')
+		}
+	}
+})
+
+console.log(a.todos[0].text);
+</script>
+</body>
+</html>

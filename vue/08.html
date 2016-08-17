@@ -1,0 +1,65 @@
+<meta charset="utf-8">
+<script src="vue.js"></script>
+
+
+<ul id="example-1">
+  <li v-for="item in items">
+    {{ item.message }}
+  </li>
+</ul>
+
+<ul class="example-2">
+  <li v-for="item in items">
+    {{ parentMessage }} - {{ $index }} - {{ item.message }}
+  </li>
+</ul>
+
+<ul class="example-3">
+  <template v-for="item in items">
+    <li>{{ item.message }}</li>
+    <!--<li class="divider"></li>-->
+  </template>
+</ul>
+
+
+
+<div v-for="(key, val) in object">
+  {{ key }} {{ val }}
+</div>
+
+<div>
+  <span v-for="n in 10">{{ n }} </span>
+</div>
+
+<script>
+  var example1 = new Vue({
+    el: '#example-1',
+    data: {
+      items: [
+        { message: 'Foo' },
+        { message: 'Bar' }
+      ]
+    }
+  })
+
+  var example2 = new Vue({
+    el: '.example-2',
+    data: {
+      parentMessage: 'Parent',
+      items: [
+        { message: 'Foo' },
+        { message: 'Bar' }
+      ]
+    }
+  })
+
+  var example3 = new Vue({
+    el: '.example-3',
+    data: {
+      items: [
+        { message: 'Foo' },
+        { message: 'Bar' }
+      ]
+    }
+  })
+</script>
