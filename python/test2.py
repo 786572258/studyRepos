@@ -22,8 +22,18 @@ fo.close()
 print "是否已关闭 : ", fo.closed
 """
 
+"""
 #写入
 fo = open("foo.txt", "wb")
 result = fo.write("你好世界2\r\n")
 print result	#输出none
 fo.close()
+"""
+
+"""
+print("nihao", "shijie");
+print('The quick brown fox', 'jumps over', 'the lazy dog')
+print "1+2=",1+2
+"""
+
+name = input()
